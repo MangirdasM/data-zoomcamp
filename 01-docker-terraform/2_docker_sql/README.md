@@ -168,13 +168,13 @@ Running locally
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 
 python ingest_data.py \
-  --user=root \
+  --user=root\
   --password=root \
   --host=localhost \
-  --port=5432 \
+  --port=5431 \
   --db=ny_taxi \
   --table_name=yellow_taxi_trips \
-  --url=${URL}
+  --url="https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv"
 ```
 
 Build the image
@@ -213,7 +213,7 @@ docker run -it \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
-    --url=${URL}
+    --url="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 ```
 
 ### Docker-Compose 
