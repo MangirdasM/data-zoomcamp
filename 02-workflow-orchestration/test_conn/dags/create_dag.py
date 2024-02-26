@@ -1,4 +1,5 @@
 from datetime import datetime
+from airflow.utils.dates import days_ago
 
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import (
@@ -6,19 +7,16 @@ from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryInsertJobOperator,
 )
 
-DEFAULT_DAG_ARGS = {
-    "owner": "Airflow",
+default_args = {
+    "owner": "airflow",
+    "start_date": days_ago(1),
     "depends_on_past": False,
-    "email": [""],
-    "email_on_failure": False,
-    "email_on_retry": False,
-    "retries": 0,
-    "start_date": datetime(2022, 1, 1),
+    "retries": 1,
 }
 
 with DAG(
     dag_id="create_simple_table",
-    default_args=DEFAULT_DAG_ARGS,
+    default_args=default_args,
     schedule_interval=None,
     catchup=False,
 ) as dag:

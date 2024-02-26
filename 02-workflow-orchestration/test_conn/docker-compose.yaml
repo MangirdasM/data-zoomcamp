@@ -12,7 +12,7 @@ x-common:
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - /var/run/docker.sock:/var/run/docker.sock
-    - /home/vscode/.config/gcloud/application_default_credentials.json:/home/airflow/.config/gcloud/application_default_credentials.json
+    -  C:\Users\mangi\Desktop\terraform-keys\creds.json:/home/airflow/.config/gcloud/creds.json
 
 x-depends-on:
   &depends-on
